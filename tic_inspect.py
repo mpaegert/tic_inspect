@@ -273,7 +273,7 @@ if __name__ == '__main__':
 #     options.ticid = 13419950   # split
 #     options.ticid = 141776043  # multiple with one additional bona-fide star
 #     options.ticid = 470315428  # multiple with 2 additional bona-fide stars
-    options.ticid = 320525204
+#     options.ticid = 320525204
     if options.ticid is None and options.ticidfile is None:
         parser.print_help()
         exit(1)
