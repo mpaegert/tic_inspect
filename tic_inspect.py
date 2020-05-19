@@ -215,11 +215,6 @@ def write_artifacts(ticstars):
         isartifact = False
         cnt = 0            
         for j in range(3):
-            cnt = 0
-            if qual[j] == 'U':
-                cnt += 1
-            if qual[j] == 'U':
-                cnt += 1
             if qual[j] == 'U':
                 cnt += 1
         if cnt >= 2:
@@ -277,7 +272,8 @@ if __name__ == '__main__':
 #     options.ticid = 76989773   # join
 #     options.ticid = 13419950   # split
 #     options.ticid = 141776043  # multiple with one additional bona-fide star
-    options.ticid = 470315428  # multiple with 2 additional bona-fide stars
+#     options.ticid = 470315428  # multiple with 2 additional bona-fide stars
+    options.ticid = 320525204
     if options.ticid is None and options.ticidfile is None:
         parser.print_help()
         exit(1)
