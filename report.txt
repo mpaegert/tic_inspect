@@ -1,0 +1,86 @@
+Target
+TICID      ! tessmag ! gaiapk              ! 2MASS            ! qual ! disposition ! duplicate_id 
+ 269701147 !   8.293 ! 2248126315275354496 ! 20080574+6651019 !  AAA ! --          ! -- 
+
+1 objects within 20.250000 deg of TIC 269701147 
+
+
+target    ! phantom    ! phantom_gaiapk      ! qual ! rdist ! targtmag ! phantmag ! d(tessmag) ! disposition ! duplicate_id
+269701147 !  269701145 ! --                  ! AUU  ! 13.54 !   8.2929 !  14.7000 !  -6.4071   ! ARTIFACT    ! 
+
+No more stars left within 5.0 asec
+done with ticid 269701147
+
+-------------------------------
+
+Target
+TICID      ! tessmag ! gaiapk              ! 2MASS            ! qual ! disposition ! duplicate_id 
+  76989773 !   9.623 ! --                  ! 23331070-3527489 !  AAA ! --          ! -- 
+
+2 objects within 20.250000 deg of TIC 76989773 
+
+
+target    ! phantom    ! phantom_gaiapk      ! qual ! rdist ! targtmag ! phantmag ! d(tessmag) ! disposition ! duplicate_id
+ 76989773 ! 2055898683 ! 6551292978718711168 ! ---  !  0.14 !   9.6230 !   9.6830 !  -0.0600   ! DUPLICATE   ! 76989773
+
+done with ticid 76989773
+
+-------------------------------
+
+Target
+TICID      ! tessmag ! gaiapk              ! 2MASS            ! qual ! disposition ! duplicate_id 
+  13419950 !   9.493 ! --                  ! 20210946+4127442 !  AAA ! --          ! -- 
+
+6 objects within 20.250000 deg of TIC 13419950 
+
+
+target    ! phantom    ! phantom_gaiapk      ! qual ! rdist ! targtmag ! phantmag ! d(tessmag) ! disposition ! duplicate_id
+ 13419950 ! 1969293164 ! 2068399423045976320 ! ---  !  0.51 !   9.4930 !   9.6531 !  -0.1601   ! DUPLICATE   ! 13419950
+ 13419950 ! 1969293163 ! 2068399418758831616 ! ---  !  0.95 !   9.4930 !  10.7379 !  -1.2449   !             ! 13419950
+
+Set disposition for ticid 13419950 to SPLIT
+
+done with ticid 13419950
+
+-------------------------------
+
+Target
+TICID      ! tessmag ! gaiapk              ! 2MASS            ! qual ! disposition ! duplicate_id 
+ 141776043 !  10.618 ! --                  ! 07505101-2100563 !  EEE ! --          ! -- 
+
+9 objects within 20.250000 deg of TIC 141776043 
+
+
+target    ! phantom    ! phantom_gaiapk      ! qual ! rdist ! targtmag ! phantmag ! d(tessmag) ! disposition ! duplicate_id
+141776043 !  782818615 ! 5712547537247777920 ! ---  !  0.30 !  10.6180 !  11.2295 !  -0.6115   ! DUPLICATE   ! 141776043
+141776043 !  782818631 ! 5712547541549096704 ! ---  !  1.48 !  10.6180 !  16.1440 !  -5.5260   !             ! 141776043
+141776043 !  782818623 ! 5712547541543501824 ! ---  !  2.53 !  10.6180 !  12.7637 !  -2.1457   !             ! 141776043
+
+Set disposition for ticid 141776043 to SPLIT
+
+done with ticid 141776043
+
+-------------------------------
+
+Target
+TICID      ! tessmag ! gaiapk              ! 2MASS            ! qual ! disposition ! duplicate_id 
+ 470315428 !  10.220 ! --                  ! 04183563+5251541 !  AAA ! --          ! -- 
+
+25 objects within 20.250000 deg of TIC 470315428 
+
+
+target    ! phantom    ! phantom_gaiapk      ! qual ! rdist ! targtmag ! phantmag ! d(tessmag) ! disposition ! duplicate_id
+470315428 !  668056616 ! 274911510768637696  ! ---  !  0.15 !  10.2200 !  10.2851 !  -0.0651   ! DUPLICATE   ! 470315428
+470315428 !  668056620 ! 274911515065266816  ! ---  !  2.25 !  10.2200 !  14.7375 !  -4.5175   !             ! 470315428
+470315428 !  668056626 ! 274911515070528768  ! ---  !  4.18 !  10.2200 !  14.3253 !  -4.1053   !             ! 470315428
+470315428 !  668056622 ! 274911515065267328  ! ---  !  4.74 !  10.2200 !  15.1049 !  -4.8849   !             ! 470315428
+
+Set disposition for ticid 470315428 to SPLIT
+
+done with ticid 470315428
+
+-------------------------------
+
+
+5 stars inspected
+done
