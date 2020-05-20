@@ -50,7 +50,7 @@ import numpy as np
 tess_pixel = 20.25    # asec
 
 ticepoch    = Time('J2000.0')
-targetepoch = Time('J2019.5')
+# targetepoch = Time('J2019.5')
 
 tfmt = '{:>10s} ! {:7.3f} ! {:19s} ! {:16s} !  {}{}{} ! {:11s} ! {} \n\n'
 lfmt = ('{:9d} ! {:10d} ! {:19s} ! {:4s} ! {:5.2f} ! {:8.4f} ! {:8.4f} ! ' +
@@ -147,7 +147,7 @@ def propagate_pm(ticstars):
                       pm_dec = ticstars['pmDEC'][gd] * u.mas / u.yr, 
                       obstime = ticepoch, 
                       distance = dist[gd] * u.pc)
-    newcoords = coords.apply_space_motion(targetepoch)
+    newcoords = coords.apply_space_motion(Time(options.targetepoch))
     newra  = newcoords.ra.degree
     newdec = newcoords.dec.degree
     oldra  = deepcopy(ticstars['ra'])
@@ -251,7 +251,7 @@ def joins_splits(ticstars):
 
 if __name__ == '__main__':
     
-    usage = '%prog [options] textfile(s)'
+    usage = '\n%prog [options] - ticid or ticfile option must be set'
     parser = OptionParser(usage = usage)
     parser.add_option('--csvfile', dest='csvfile', type='string', default='phantoms.csv',
                       help='logfile for analysis (default = phantoms.cvs)')
@@ -265,6 +265,9 @@ if __name__ == '__main__':
                       help='artifact search radius in asec (default = 20.25)')
     parser.add_option('--joinrad', dest='joinrad', type='float', default=5.0,
                       help='search radius in asec for joins/splits (default = 5.0)')
+    parser.add_option('--tepoch', dest='targetepoch', type='string', 
+                      default='J2019.5',
+                      help='target epoch for proper motions (default = J2019.5)')
     
     (options, args) = parser.parse_args()
     
@@ -274,7 +277,7 @@ if __name__ == '__main__':
 #     options.ticid = 141776043  # multiple with one additional bona-fide star
 #     options.ticid = 470315428  # multiple with 2 additional bona-fide stars
 #     options.ticid = 320525204
-    if options.ticid is None and options.ticidfile is None:
+    if options.ticid is None and options.ticfile is None:
         parser.print_help()
         exit(1)
         
