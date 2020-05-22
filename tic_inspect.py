@@ -185,6 +185,12 @@ def write_target(target):
     if lf:
         lf.write(msg)
 
+    # ra, dec
+    print('propagated ra, dec = ', target['ra'], ', ', target['dec'])
+    if lf:
+        lf.write('propagated ra, dec = ' + str(target['ra']) + ', ' + 
+                 str(target['dec']) + '\n')
+
     # Print out the number of returned rows.
     msg = ('%d objects within %f deg of %s \n' % 
            (len(ticstars), 3600 * search_radius_deg, target_name))
@@ -193,7 +199,6 @@ def write_target(target):
         lf.write(msg)
         lf.write('\n\n')
 
-    print('ra, dec = ', target['ra'], target['dec'])
 
 
 def write_artifacts(ticstars):
