@@ -313,6 +313,7 @@ if __name__ == '__main__':
         # What columns are available from the TIC?
         # print(len(ticstars), 'stars found')
         # print(ticstars.columns)
+        # print(ticstars['gaiaqflag'])
         
         # propagate proper motions
         propagate_pm(ticstars)
@@ -366,6 +367,8 @@ if __name__ == '__main__':
             continue
             
         print('finding joins and splits in', nremain, 'remaining stars')
+        print('target    ! phantom    ! phantom_gaiapk      ! qual ! rdist ! ' + 
+              'targtmag ! phantmag ! d(tessmag) ! disposition ! duplicate_id')
     
         joins_splits(ticstars)
     
