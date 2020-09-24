@@ -34,6 +34,7 @@ Initial revision
 '''
 
 import csv
+import sys
 
 from pprint import pprint
 from copy import deepcopy
@@ -176,11 +177,16 @@ def write_target(target):
     gaiapk = str(target['GAIA'])
     disp   = str(target['disposition'])
     dupeid = str(target['duplicate_id'])
-    msg += tfmt.format(target['ID'], target['Tmag'], gaiapk,
-                       target['TWOMASS'], 
-                       target['TWOMflag'][0], target['TWOMflag'][1], 
-                       target['TWOMflag'][2], 
-                       disp, dupeid)
+    if target['TWOMASS']:
+        msg += tfmt.format(target['ID'], target['Tmag'], gaiapk,
+                           target['TWOMASS'], 
+                           target['TWOMflag'][0], target['TWOMflag'][1], 
+                           target['TWOMflag'][2], 
+                           disp, dupeid)
+    else:
+        msg += tfmt.format(target['ID'], target['Tmag'], gaiapk,
+                           str(target['TWOMASS']), '-', '-', '-',
+                           disp, dupeid)
     print(msg, end = '')
     if lf:
         lf.write(msg)
@@ -255,7 +261,7 @@ def joins_splits(ticstars):
 
 
 if __name__ == '__main__':
-    
+    print('command line args =', sys.argv)
     usage = '\n%prog [options] - ticid or ticfile option must be set'
     parser = OptionParser(usage = usage)
     parser.add_option('--csvfile', dest='csvfile', type='string', default='phantoms.csv',
@@ -276,12 +282,12 @@ if __name__ == '__main__':
     
     (options, args) = parser.parse_args()
     
-#     options.ticid = 269701147  # artifact
-#     options.ticid = 76989773   # join
-#     options.ticid = 13419950   # split
-#     options.ticid = 141776043  # multiple with one additional bona-fide star
-#     options.ticid = 470315428  # multiple with 2 additional bona-fide stars
-#     options.ticid = 320525204
+#     options.ticid = 269701147    # artifact
+#     options.ticid = 76989773     # join
+#     options.ticid = 13419950     # split
+#     options.ticid = 141776043    # multiple with one additional bona-fide star
+#     options.ticid = 470315428    # multiple with 2 additional bona-fide stars
+#     options.ticid = 1001512783   # start added from Gaia DR2
     if options.ticid is None and options.ticfile is None:
         parser.print_help()
         exit(1)
@@ -359,6 +365,8 @@ if __name__ == '__main__':
         if target['GAIA']:
             msg = 'TICID ' + str(target['ID']) + ' has a GAIA ID and thus is no '
             msg += 'candidate for a join or split\n'
+            if not target['TWOMASS']:
+                msg += 'This star has been added from Gaia\n'
             print(msg, end = '')
             if lf:
                 lf.write(msg)
