@@ -17,6 +17,7 @@ comma separated list in phantoms.csv. Please note that any ticid_target in the
 csv-file with a DUPLICATE plus at least one other line with only a duplicate_id 
 is a SPLIT and should be treated as such.
 
+NOTE: the samples have been updated on MAST meanwhile
 sample artifact around ticid 269701147, artifact ticid = 269701145
 sample join:  ticid 76989773 with ticid 2055898683
 sample split: ticid 13419950 into ticid 1969293164 and 1969293163
@@ -31,6 +32,8 @@ right in the plane again: glat = 1.8 deg.
 
 $Log$
 Initial revision
+
+20200924: bugfix for printing results for stars without 2MASS id or quality flag
 '''
 
 import csv
@@ -178,11 +181,16 @@ def write_target(target):
     disp   = str(target['disposition'])
     dupeid = str(target['duplicate_id'])
     if target['TWOMASS']:
-        msg += tfmt.format(target['ID'], target['Tmag'], gaiapk,
-                           target['TWOMASS'], 
-                           target['TWOMflag'][0], target['TWOMflag'][1], 
-                           target['TWOMflag'][2], 
-                           disp, dupeid)
+        if target['TWOMflag']:
+            msg += tfmt.format(target['ID'], target['Tmag'], gaiapk,
+                               target['TWOMASS'], 
+                               target['TWOMflag'][0], target['TWOMflag'][1], 
+                               target['TWOMflag'][2], 
+                               disp, dupeid)
+        else:
+            msg += tfmt.format(target['ID'], target['Tmag'], gaiapk,
+                               target['TWOMASS'], '-', '-', '-', 
+                               disp, dupeid)
     else:
         msg += tfmt.format(target['ID'], target['Tmag'], gaiapk,
                            str(target['TWOMASS']), '-', '-', '-',
@@ -288,6 +296,7 @@ if __name__ == '__main__':
 #     options.ticid = 141776043    # multiple with one additional bona-fide star
 #     options.ticid = 470315428    # multiple with 2 additional bona-fide stars
 #     options.ticid = 1001512783   # start added from Gaia DR2
+#     options.ticid = 471012700    # star added from Cool Dwarf Catalog
     if options.ticid is None and options.ticfile is None:
         parser.print_help()
         exit(1)
