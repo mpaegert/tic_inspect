@@ -33,7 +33,8 @@ right in the plane again: glat = 1.8 deg.
 $Log$
 Initial revision
 
-2020/10/08: bugfix: deletion of artifacts needs an indirect indexing, was direct
+2020/10/08: bugfix: deletion of artifacts needs an indirect indexing, was direct,
+            print message for Gaia only stars
 2020/09/24: bugfix for printing results for stars without 2MASS id or quality flag
 '''
 
@@ -298,8 +299,8 @@ if __name__ == '__main__':
 #     options.ticid = 470315428    # multiple with 2 additional bona-fide stars
 #     options.ticid = 1001512783   # start added from Gaia DR2
 #     options.ticid = 471012700    # star added from Cool Dwarf Catalog
-#     options.ticid = 1972296808   # Gaia star with hip only join canditate
-    options.ticid = 471012067    # hip only with 1972296808 as join
+    options.ticid = 1972296808   # Gaia star with hip only join canditate
+#     options.ticid = 471012067    # hip only with 1972296808 as join
     if options.ticid is None and options.ticfile is None:
         parser.print_help()
         exit(1)
@@ -351,6 +352,10 @@ if __name__ == '__main__':
         nartifacts = len(artifacts)
         if nartifacts == nrstars:
             # nothing more to do
+            print('\n')
+            print('No more stars left within ' + str(options.joinrad) + ' asec\n')
+            print('done with ticid ' + str(ticid) + '\n')
+            print('\n-------------------------------\n\n')
             if lf:
                 lf.write('\n')
                 lf.write('No more stars left within ' + str(options.joinrad) + ' asec\n')
