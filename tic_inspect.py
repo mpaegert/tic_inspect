@@ -299,7 +299,7 @@ if __name__ == '__main__':
 #     options.ticid = 470315428    # multiple with 2 additional bona-fide stars
 #     options.ticid = 1001512783   # start added from Gaia DR2
 #     options.ticid = 471012700    # star added from Cool Dwarf Catalog
-    options.ticid = 1972296808   # Gaia star with hip only join canditate
+#     options.ticid = 1972296808   # Gaia star with hip only join canditate
 #     options.ticid = 471012067    # hip only with 1972296808 as join
     if options.ticid is None and options.ticfile is None:
         parser.print_help()
