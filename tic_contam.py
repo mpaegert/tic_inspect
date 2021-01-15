@@ -293,6 +293,7 @@ if __name__ == '__main__':
     csvfile = csv.writer(csvf, delimiter = ',')
     csvfile.writerow(csvcols)
     print(head)
+    lf.write(head + '\n')
 
     for actid in options.ticid:
         target_name = 'TIC ' + str(actid)
@@ -340,14 +341,14 @@ if __name__ == '__main__':
                 print('tflux, tfluxe = ', tflux, tfluxe, ' (target flux and error)')
         except Exception:
             e, v = sys.exc_info()[:2]
-            lf.write('')
-            lf.write('while computing tflux for ticid ' + str(ticid))
-            lf.write('ERROR: ' + str(e))
-            lf.write('VALUE: ' + str(v))
+            lf.write('\n')
+            lf.write('while computing tflux for ticid ' + str(ticid) + '\n')
+            lf.write('ERROR: ' + str(e) + '\n')
+            lf.write('VALUE: ' + str(v) + '\n')
             raise
 
         if not tflux:
-            msg = 'no flux for ticid ' + str(ticid)
+            msg = 'no flux for ticid ' + str(ticid) + '\n'
             lf.write(msg)
             raise Exception(msg)
         
@@ -372,7 +373,7 @@ if __name__ == '__main__':
         sumcflx = np.sum(cflx)
         sumcfle = np.sum(cfle)
         if np.isnan(sumcflx):
-            msg = 'sumcflx is nan for ticid %d' % (ticid,) 
+            msg = 'sumcflx is nan for ticid %d \n' % (ticid,) 
             lf.write(msg)
 
         # get the ratio of contaminating flux to target flux
@@ -382,7 +383,7 @@ if __name__ == '__main__':
         cols = [ticid, tmag, tmage, flxratio, flxratioe, nrcontam]
         csvfile.writerow(cols)
         msg = lfmt.format(ticid, tmag, tmage, flxratio, flxratioe, nrcontam)
-        lf.write(msg)
+        lf.write(msg + '\n')
         print(msg)
 
     print('done')
